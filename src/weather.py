@@ -2,16 +2,20 @@ import requests
 
 
 def get_weather(city="Cruzeiro"):
-    url = f"https://wttr.in/{city}?format=j1"
+    url = "https://api.open-meteo.com/v1/forecast?latitude=-22.57&longitude=-44.97&current_weather=true"
 
-    response = requests.get(url, timeout=5)
+    try:
+        response = requests.get(url, timeout=5)
 
-    if response.status_code != 200:
-        return "Não foi possível obter clima."
+        if response.status_code != 200:
+            return "Clima indisponível"
 
-    data = response.json()
+        data = response.json()
 
-    temp = data["current_condition"][0]["temp_C"]
-    desc = data["current_condition"][0]["weatherDesc"][0]["value"]
+        temperature = data["current_weather"]["temperature"]
+        windspeed = data["current_weather"]["windspeed"]
 
-    return f"{temp}°C - {desc}"
+        return f"{temperature}°C | Vento: {windspeed} km/h"
+
+    except Exception:
+        return "Clima indisponível"
