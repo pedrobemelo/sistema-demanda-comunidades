@@ -1,5 +1,13 @@
 # Sistema de Demanda de Comunidades (SDC)
 
+## Execução
+
+O projeto pode ser executado localmente via terminal:
+
+
+python -m src.main
+
+
 ## Descrição do Problema
 
 Em muitas comunidades locais, demandas como buracos nas ruas, falta de iluminação pública, lixo acumulado e problemas de infraestrutura são registradas de forma desorganizada, geralmente por meio de conversas informais (como WhatsApp ou comunicação verbal).
@@ -30,7 +38,7 @@ O **Sistema de Demanda de Comunidades (SDC)** é uma aplicação de linha de com
 *Atualizar status (Aberto, Em andamento, Resolvido)
 *Remover demanda
 *Persistência em arquivo JSON
-
+*Consultar clima atual via API pública
 ---
 
 ## Interface
@@ -45,6 +53,7 @@ A aplicação utiliza uma **interface CLI (linha de comando)** com menu interati
 *Pytest (testes automatizados)
 *Ruff (lint / análise estática)
 *GitHub Actions (integração contínua)
+*Requests (consumo de API REST)
 
 ---
 
@@ -102,6 +111,7 @@ Os testes cobrem:
 * criação de demanda
 * validação de entrada inválida
 * atualização de status
+* integração com API de clima (mockada)
 
 ---
 
