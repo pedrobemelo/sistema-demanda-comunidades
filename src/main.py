@@ -1,8 +1,10 @@
 from src.demand import Demand
 from src.storage import load_data, save_data
+from src.weather import get_weather
 
 def menu():
     print("\n=== Sistema de Demanda de Comunidades ===")
+    print("\nClima atual:", get_weather())
     print("1 - Criar demanda")
     print("2 - Listar demandas")
     print("3 - Atualizar status")
